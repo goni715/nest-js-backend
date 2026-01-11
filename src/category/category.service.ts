@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CategoryService {
-    getCategories(){
-        return ['Pokenmon', 'Footbal', 'BasketBall'];
-    }
+  getCategories() {
+    return ['Pokenmon', 'Footbal', 'BasketBall'];
+  }
 }
