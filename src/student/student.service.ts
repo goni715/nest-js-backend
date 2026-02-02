@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
@@ -57,5 +58,28 @@ export class StudentService {
     };
     this.students[index] = updatedData;
     return this.students[index];
+  }
+
+  //PATCH
+  patchStudent(id: number, data: Partial<{ name: string; age: number }>) {
+    const student = this.getStudentById(id);
+    Object.assign(student, data);
+    return student;
+  }
+
+  //DELETE
+  deleteStudent(id: number) {
+    const index = this.students.findIndex((cv) => cv.id === id);
+
+    if (index === -1) {
+      //index=-1 means index not found
+      throw new NotFoundException('Student not found');
+    }
+
+    const deleted = this.students.splice(index, 1); //return array--//splice 1 mane je index ta pabe seta delete korbe. 1 bolar karone 1 ta delete korbe. 2 ta bolle oi index number theke 2 ta delete korbe
+    return {
+      message: 'Student is deleted successfully',
+      student: deleted[0],
+    };
   }
 }
