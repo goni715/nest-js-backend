@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
@@ -11,10 +12,16 @@ import { StudentModule } from './student/student.module';
 import { CustomerModule } from './customer/customer.module';
 import { MynameController } from './myname/myname.controller';
 import { UserRoleController } from './user-role/user-role.controller';
+import { ExceptionController } from './exception/exception.controller';
+import { LoggerMiddleware } from './middlewares/logger/logger.middleware';
 
 @Module({
   imports: [EmployeeModule, CategoryModule, StudentModule, CustomerModule],
-  controllers: [AppController, UserController, ProductController, MynameController, UserRoleController],
+  controllers: [AppController, UserController, ProductController, MynameController, UserRoleController, ExceptionController],
   providers: [AppService, ProductService, UserService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
