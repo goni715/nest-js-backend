@@ -14,11 +14,13 @@ import { MynameController } from './myname/myname.controller';
 import { UserRoleController } from './user-role/user-role.controller';
 import { ExceptionController } from './exception/exception.controller';
 import { LoggerMiddleware } from './middlewares/logger/logger.middleware';
+import { DatabaseService } from './database/database.service';
+import { DatabaseController } from './database/database.controller';
 
 @Module({
   imports: [EmployeeModule, CategoryModule, StudentModule, CustomerModule],
-  controllers: [AppController, UserController, ProductController, MynameController, UserRoleController, ExceptionController],
-  providers: [AppService, ProductService, UserService],
+  controllers: [AppController, UserController, ProductController, MynameController, UserRoleController, ExceptionController, DatabaseController],
+  providers: [AppService, ProductService, UserService, DatabaseService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
