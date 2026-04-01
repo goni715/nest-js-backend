@@ -8,7 +8,7 @@ export class DatabaseService implements OnModuleInit, OnApplicationShutdown{
     //this method will be automatically called when this module or service will be load
     onModuleInit(){
         this.isConnected= true;
-        console.log("Database is connected");
+        console.log("Database is connected from life cycle methods");
     }
 
 
