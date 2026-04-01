@@ -36,7 +36,6 @@ import { UserModule } from './user/user.module';
   ],
   controllers: [
     AppController,
-    UserController,
     ProductController,
     MynameController,
     UserRoleController,
@@ -47,7 +46,6 @@ import { UserModule } from './user/user.module';
   providers: [
     AppService,
     ProductService,
-    UserService,
     DatabaseService,
     EvService,
   ],
