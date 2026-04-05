@@ -22,6 +22,7 @@ import { AdminModule } from './admin/admin.module';
 import { AdminController } from './admin/admin.controller';
 import { OperatorModule } from './operator/operator.module';
 import { ProductModule } from './product/product.module';
+import { LibraryModule } from './library/library.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { ProductModule } from './product/product.module';
     AdminModule,
     OperatorModule,
     ProductModule,
+    LibraryModule,
   ],
   controllers: [
     AppController,
