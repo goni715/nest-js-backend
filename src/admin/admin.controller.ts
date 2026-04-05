@@ -1,14 +1,20 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AdminService } from './admin.service';
-import { Admin } from './schemas/admin.schema';
+import { CreateAdminDto } from './dto/create-admin.dto';
 
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post()
-  async createAdmin(@Body() data: Admin) {
+  async createAdmin(@Body() data: CreateAdminDto) {
     const result = await this.adminService.createAdmin(data);
+    return result;
+  }
+
+  @Get('/get-all-admins')
+  async getAllAdmins() {
+    const result = await this.adminService.getAllAdmins();
     return result;
   }
 }

@@ -1,4 +1,4 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema()
 export class Address {
@@ -8,3 +8,5 @@ export class Address {
   @Prop()
   city: string;
 }
+
+export const AddressSchema = SchemaFactory.createForClass(Address);
