@@ -1,10 +1,7 @@
-/* eslint-disable prettier/prettier */
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserController } from './user/user.controller';
 import { ProductService } from './product/product.service';
-import { UserService } from './user/user.service';
 import { ProductController } from './product/product.controller';
 import { EmployeeModule } from './employee/employee.module';
 import { CategoryModule } from './category/category.module';
@@ -24,6 +21,7 @@ import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { AdminController } from './admin/admin.controller';
 import { OperatorModule } from './operator/operator.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -38,10 +36,10 @@ import { OperatorModule } from './operator/operator.module';
     UserModule,
     AdminModule,
     OperatorModule,
+    ProductModule,
   ],
   controllers: [
     AppController,
-    ProductController,
     MynameController,
     UserRoleController,
     ExceptionController,
@@ -49,7 +47,7 @@ import { OperatorModule } from './operator/operator.module';
     EvController,
     AdminController,
   ],
-  providers: [AppService, ProductService, DatabaseService, EvService],
+  providers: [AppService, DatabaseService, EvService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
