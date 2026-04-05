@@ -23,6 +23,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { AdminController } from './admin/admin.controller';
+import { OperatorModule } from './operator/operator.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { AdminController } from './admin/admin.controller';
     MongooseModule.forRoot(process.env.DATABASE_URL!),
     UserModule,
     AdminModule,
+    OperatorModule,
   ],
   controllers: [
     AppController,
