@@ -1,8 +1,6 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProductService } from './product/product.service';
-import { ProductController } from './product/product.controller';
 import { EmployeeModule } from './employee/employee.module';
 import { CategoryModule } from './category/category.module';
 import { StudentModule } from './student/student.module';
@@ -23,6 +21,7 @@ import { AdminController } from './admin/admin.controller';
 import { OperatorModule } from './operator/operator.module';
 import { ProductModule } from './product/product.module';
 import { LibraryModule } from './library/library.module';
+import { ProjectModule } from './project/project.module';
 
 @Module({
   imports: [
@@ -39,6 +38,7 @@ import { LibraryModule } from './library/library.module';
     OperatorModule,
     ProductModule,
     LibraryModule,
+    ProjectModule,
   ],
   controllers: [
     AppController,
