@@ -21,6 +21,8 @@ import { EvService } from './ev/ev.service';
 import { EvController } from './ev/ev.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
+import { AdminController } from './admin/admin.controller';
 
 @Module({
   imports: [
@@ -32,7 +34,8 @@ import { UserModule } from './user/user.module';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.DATABASE_URL!),
-    UserModule
+    UserModule,
+    AdminModule,
   ],
   controllers: [
     AppController,
@@ -42,13 +45,9 @@ import { UserModule } from './user/user.module';
     ExceptionController,
     DatabaseController,
     EvController,
+    AdminController,
   ],
-  providers: [
-    AppService,
-    ProductService,
-    DatabaseService,
-    EvService,
-  ],
+  providers: [AppService, ProductService, DatabaseService, EvService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
